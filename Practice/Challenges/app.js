@@ -124,3 +124,14 @@ for (let i = 0; i < num.length; i++){
         document.getElementById('two-shelf').textContent += num[i] + " "
     }
 }
+
+const boxel = document.getElementById("box")
+
+boxel.innerHTML = "<button onclick='buy()'> Buy </button>"
+
+function buy(){
+    boxel.innerHTML += "<p> Thank you for Buying </p>"
+}
+
+
+
