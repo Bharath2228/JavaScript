@@ -1,0 +1,16 @@
+body{
+    background-color: aqua;
+    color: white;
+}
+
+.shelf{
+    width: 200px;
+    background: black;
+    height: 100px;
+}
+
+#one-shelf{
+    width: 200px;
+    background: red;
+    height: 50px;
+}
