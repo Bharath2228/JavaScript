@@ -132,6 +132,8 @@ boxel.innerHTML = "<button onclick='buy()'> Buy </button>"
 function buy(){
     boxel.innerHTML += "<p> Thank you for Buying </p>"
 }
+let rec = "Peop"
+const email = `Hey ${rec} ! How is going on`
 
-
+console.log(email)
 
