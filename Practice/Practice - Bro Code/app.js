@@ -102,4 +102,5 @@ z = Math.sqrt(x)
 z = Math.log(x)
 console.log(z)
 
-
+random = Math.floor(Math.random() * 6) + 1
+console.log(random)
