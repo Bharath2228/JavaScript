@@ -184,3 +184,27 @@ let username1 = "   bhARAth"
 username1 = username1.trim().charAt(0).toUpperCase() + username1.trim().slice(1).toLowerCase()
 
 console.log(username1)
+
+////////////////////// spread operator //////////////
+
+let number = [1, 2, 3, 4, 5]
+let max = Math.max(...number)
+console.log(max)
+
+let fname = "Br0 CODE"
+
+let letters = [...fname]
+
+console.log(letters)
+
+///////////// rest operators //////////////////////
+
+function fooditems(...foods){
+    console.log(foods)
+}
+
+const food1 = "pizza"
+const food2 = "ham"
+const food3 = "hotdog"
+
+fooditems(food1, food2, food3)
