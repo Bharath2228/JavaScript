@@ -1,8 +1,8 @@
 const inptpassword = document.getElementById("inptpassword")
-let selectupper = document.getElementById("selectupper")
-let selectlower = document.getElementById("selectlower")
-let selectnumber = document.getElementById("selectnumber")
-let selectchars = document.getElementById("selectchars")
+const selectupper = document.getElementById("selectupper")
+const selectlower = document.getElementById("selectlower")
+const selectnumber = document.getElementById("selectnumber")
+const selectchars = document.getElementById("selectchars")
 const passwordLength = 12;
 
 const lowercaseChars = "abcdefghijklmnopqrstuvwxyz"
