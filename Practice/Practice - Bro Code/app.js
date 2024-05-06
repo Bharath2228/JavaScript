@@ -208,3 +208,76 @@ const food2 = "ham"
 const food3 = "hotdog"
 
 fooditems(food1, food2, food3)
+
+
+//////////////////// Callback //////////////
+// callback = a function that is passed as an argument to another function.
+
+hello(bye)
+
+function hello(callback){
+    console.log("Hello")
+    callback()
+}
+
+function bye(){
+    console.log("Bye")
+}
+
+
+////////////// FOR EACH ///////////////////
+
+/// forEach() = method used to iterate over the elements of an array and apply a specified function (callback) to each element
+
+// array.forEach(callback)
+// element, index, array
+let numbers = [1, 2, 3, 4, 5];
+
+number.forEach(double)
+number.forEach(square)
+number.forEach(display)
+
+function double(element, index, array){
+    array[index] = element * 2
+}
+
+function square(element, index, array){
+    array[index] = Math.pow(element, 2)
+}
+
+function display(element){
+    console.log(element)
+}
+
+let fruits = ['apple', 'banana', 'coconut', 'orange']
+
+fruits.forEach(uppercase)
+fruits.forEach(display)
+
+
+function uppercase(element, index, array){  
+    array[index] = element.toUpperCase()
+}
+
+function display(element){
+    console.log(element)
+}
+
+////////////// .map() = accepts a callback and applies that function to each element of an array, then return a new array
+
+const num = [1, 2, 3, 4, 5]
+
+const squares = num.map(square)
+const cubes = num.map(cube)
+
+console.log(squares)
+console.log(cube)
+function square(element){
+    return Math.pow(element, 2)
+}
+
+function cube(element){
+    return Math.pow(element, 3)
+}
+
+
