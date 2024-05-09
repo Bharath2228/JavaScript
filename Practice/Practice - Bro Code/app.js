@@ -505,3 +505,235 @@ class MathUtil{
 console.log(MathUtil.getDiameter(10))
 console.log(MathUtil.PI)
 console.log(MathUtil.getCircumference(10))
+
+class User{
+    static userCount = 0
+
+    constructor(username2){
+        this.username2 = username2
+        User.userCount++
+    }
+}
+
+const user1 = new User("Bharath")
+
+console.log(user1.username2)
+console.log(User.userCount)
+
+
+///////// inhertinance = allows a new class to inherit properties and methods from an existing class (parent -> child) helps with code reusability
+
+class Animal{
+    isAlive = true
+
+    eat(){
+        console.log(`This ${this.name} is eating`)
+    }
+
+    sleep(){
+        console.log(`this ${this.name} is sleeping`)
+    }
+}
+
+class rabbit extends Animal{
+    name = "rabbit"
+    run(){
+        console.log(`This ${this.name} is running`)
+    }
+}
+
+class fish extends Animal{
+    name = "Fish"
+    swim(){
+        console.log(`This ${this.name} is swimming`)
+    }
+}
+
+class hawk extends Animal{
+    name = "hawk"
+}
+
+const Rabbit = new rabbit();
+const Fish = new fish();
+const Hawk = new hawk()
+
+console.log(Rabbit.isAlive)
+Rabbit.eat()
+Rabbit.sleep()
+
+///// super = keyword is used in classes to call the constructor or access the properties and methods of a parent (superclass) this = this object, super = the parent
+
+class Animal1{
+    constructor(name, age){
+        this.name = name
+        this.age = age
+    }
+
+    move(speed){
+        console.log(`This ${this.name} moves at a speed of ${speed}km`)
+    }
+}
+
+class Rabbit1 extends Animal1{
+    constructor(name, age, runspeed){
+        super(name, age)
+        this.runspeed = runspeed
+    }
+
+    run(){
+        console.log(`This ${this.name} can run`)
+        super.move(this.runspeed)
+    }
+}
+
+class Fish1 extends Animal1{
+    constructor(name, age, swimspeed){
+        super(name,age)
+        this.swimspeed = swimspeed
+    }
+    swim(){
+        console.log(`This ${this.name} can swim`)
+        super.move(this.swimspeed)
+    }
+}
+
+const rabbit1 = new Rabbit1("Rabbit", 12, 10)
+const fish1 = new Fish1("Fish", 3, 12)
+console.log(rabbit1.name)
+rabbit1.move(20)
+fish1.move(12)
+
+// getter = special method that makes a property readable
+// setter = special method that makes a property writeable
+
+// validate and modify a value when reading/writing a property
+
+class rectangle{
+
+    constructor(width, height){
+        this.width = width
+        this.height = height
+    }
+
+    set width(newwidth){
+        if(newwidth > 0){
+            this._width = newwidth
+        }
+        else{
+            console.error("Width must be a positive number")
+        }            
+    }
+
+    set height(newheight){
+        if(newheight > 0 ){
+            this._height = newheight
+        }
+        else{
+            console.error("Height must be positive number")
+        }
+    }
+
+    get width(){
+        return this._width
+    }
+
+    get height(){
+        return this._height
+    }
+
+    get area(){
+        return this._height * this._width
+    }
+}
+
+const Rectangle = new rectangle(20, 5)
+
+Rectangle.width = 200
+Rectangle.height = 300
+
+console.log(Rectangle.width)
+console.log(Rectangle.height)
+
+class Person{
+
+    constructor(firstname, lastname, age){
+        this.firstname = firstname
+        this.lastname = lastname
+        this.age = age
+    }
+
+    set firstname(newfirstname){
+        if(typeof newfirstname === "string" && newfirstname.length > 0){
+            this._firstname = newfirstname
+        }
+        else{
+            console.error("give proper firstname")
+        }
+    }   
+
+    set lastname(newlastname){
+        if(typeof newlastname === "string" && newlastname.length > 0){
+            this._lastname = newlastname
+        }
+        else{
+            console.error("Give Proper Last name")
+        }
+    }
+
+    set age(newage){
+        if(newage > 0){
+            this._age = newage
+        }   
+        else{
+            console.error("Give proper age")
+        }
+    }
+
+    get firstname(){
+        return this._firstname
+    }
+
+    get lastname(){
+        return this._lastname
+    }
+
+    get age(){
+        return this._age
+    }
+
+    get fullname(){
+        return this._firstname + " " + this._lastname
+    }
+}
+
+const person3 = new Person("Bharath", "P", 24)
+
+console.log(person3.firstname)
+console.log(person3.lastname)
+console.log(person3.age)
+console.log(person3.fullname)
+
+
+// destructuring = extract values from arrays and objects,
+//                 then assign them to variables in a convinent  way 
+// [] = to perform array destructuring
+// {} = to perform object destructuring
+
+
+/// swap the value of two variables
+
+let a = 1;
+let b = 2;
+
+[a, b] = [b, a]
+
+console.log(a);
+console.log(b);
+
+// swap the two elements in an array
+
+const colors = ["Red", "Green", "Blue", "Black", "White"];
+
+[colors[0], colors[4]] = [colors[4], colors[0]];
+
+console.log(colors);
