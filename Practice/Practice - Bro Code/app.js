@@ -271,7 +271,8 @@ const squares = num.map(square)
 const cubes = num.map(cube)
 
 console.log(squares)
-console.log(cube)
+console.log(cubes)
+
 function square(element){
     return Math.pow(element, 2)
 }
@@ -280,4 +281,227 @@ function cube(element){
     return Math.pow(element, 3)
 }
 
+////////////// .filter() = creates a new array by filtering out elements
 
+let num1 = [1, 2, 3, 4, 5, 6]
+let evennums = num1.filter(isEven)
+let oddnums = num1.filter(isOdd)
+console.log(evennums)
+console.log(oddnums)
+
+function isEven(element){
+    return element % 2 === 0;
+}
+
+function isOdd(element){
+    return element % 2 != 0
+}
+
+
+const ages = [16, 17, 18, 19, 20, 60]
+const adult = ages.filter(isadult)
+const child = ages.filter(ischild)
+console.log(adult)
+console.log(child)
+
+function isadult(element){
+    return element>=18
+}
+
+function ischild(element){
+    return element<18
+}
+
+
+////////// .reduce() = reduce the eements of an array to a single value
+
+const prices = [5, 90, 64, 76, 43]
+
+const total = prices.reduce(sum)
+
+console.log(total)
+
+function sum(accumulator, element){
+    return accumulator + element
+}
+
+const grades = [75, 50 ,90, 80, 65, 95]
+
+const maxi = grades.reduce(getMax)
+const mini = grades.reduce(getmin)
+console.log(maxi)
+console.log(mini)
+
+function getMax(accumulator, element){
+    return Math.max(accumulator, element)
+}
+
+function getmin(accumulator, element){
+    return Math.min(accumulator, element)
+}
+
+
+///// function declaration = define a reusable block of code that performs a specific task
+
+//// function expressions = a way to define function as values or variables
+
+const helloo = function(){
+    console.log("Hello")
+}
+
+helloo()
+
+// setTimeout(function(){
+//     console.log("timeour")
+// }, 3000)
+
+const num2 = [1, 2, 3, 4, 5, 6]
+
+const squuares = numbers.map(function(element){
+    return Math.pow(element, 2)
+})
+
+const cuubes = num2.map(function(element){
+    return Math.pow(element, 3)
+})
+console.log(squuares)
+console.log(cuubes)
+
+const filtered = num2.filter(function(element){
+    return element % 2 === 0
+})
+
+console.log(filtered)
+
+
+///// arrow functions = a conxise way to write function expressions good for simple functions that you use only once (parameters) => some code
+
+// const hello = function(){
+//     console.log("Hello")
+// }
+
+// function hello(){
+//     console.log("Hello")
+// }
+
+let nameee = 'Nhatay'
+const hellooo = (nameee) => console.log(`Hellooo ${nameee}`)
+
+hellooo(nameee);
+
+// setTimeout(() => console.log("Hello"), 3000)
+
+ const squaresss = numbers.map((element) => Math.pow(element, 2))
+
+ console.log(squaresss)
+
+ let cubesss = num.map((element) => Math.pow(element, 3))
+
+ console.log(cubesss)
+
+
+ ////// object = A collection of related properties and/or methods can represent real world objects (people, products, places)    object = {key:value, function()}
+
+ const person = {
+    firstname: "Bharath",
+    lastname: "P",
+    age: 30,
+    isEmployeed: false,
+    sayHello: function(){console.log("Hi! I am Bharath")}
+ }
+
+ const person2 ={
+    firstname: "Harshitha",
+    lastname: "S L",
+    age: 42,
+    isEmployeed: true,
+    sayHello: function(){console.log("Hey this is Harshitha")},
+    eat: () => console.log("I'm eating chicken Biryani")
+ }
+ console.log(person.firstname)
+ console.log(person2.firstname)
+ person.sayHello()
+ person2.sayHello()
+ person2.eat()
+
+
+ ///// this = refernce to the object where THIS is used  (the object depends on the immediate context) person.name = this.name
+
+ const person1 = {
+    name: "Bharth",
+    sayHello: function(){console.log(`Hey this is ${this.name}`)}
+ }
+
+ person1.sayHello()
+ 
+
+ ///// constructor = special method for defining the properties and methods of objects
+
+ function Car(make, model, year, color){
+    this.make = make,
+    this.model = model,
+    this.year = year,
+    this.color = color
+    this.drive = function(){console.log(`Yor drive the ${this.model}`)}
+ }
+
+ const car1 = new Car("Ford", "Mustang", 2024, "Red")
+ const car2 = new Car("Suzuki", "Swift", 2019, "Blue")
+
+
+ console.log(car1.make)
+ console.log(car2.make)
+
+ car1.drive()
+
+
+ ///// class = (ES6 feature) provides a more structured and cleaner way to work with objects compared to traditional constructor functions ex. static keyword, encapsulation, inheritance
+
+
+class Product{
+    constructor(name, price){
+        this.name = name
+        this.price = price
+    }
+
+    displayProduct(){
+        console.log(`Product: ${this.name}`)
+        console.log(`Price: $${this.price.toFixed(2)}`)
+    }
+
+    calculateTotal(salestax){
+        return this.price + (this.price * salestax)
+    }
+
+}
+
+const product1 = new Product("Shirt", 500)
+const product2 = new Product("Pants", 255)
+const product3 = new Product("Belt", 300)
+
+const salestax = 0.05
+const total1 = product1.calculateTotal(salestax)
+
+product1.displayProduct()
+product2.displayProduct()
+product3.displayProduct()
+
+console.log(total1)
+
+///// static = keyword that defines properties or methods that belong to a class itself rather than the objects created from that class (class owns anything static, not the objects)
+
+class MathUtil{
+    static PI = 3.14159
+
+    static getDiameter(radius){
+        return radius * 2
+    }
+
+    static getCircumference(radius){
+        return 2 * this.PI * radius
+    }
+}
+
+console.log(MathUtil.getDiameter(10))
+console.log(MathUtil.PI)
+console.log(MathUtil.getCircumference(10))
