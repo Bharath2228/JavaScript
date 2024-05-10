@@ -737,3 +737,102 @@ const colors = ["Red", "Green", "Blue", "Black", "White"];
 [colors[0], colors[4]] = [colors[4], colors[0]];
 
 console.log(colors);
+
+//// Assign array elements to variable
+
+// rest parameter ... 
+const [firstcolor, secondcolor, thirdcolor, ...extracolors] = colors
+
+console.log(firstcolor)
+console.log(secondcolor)
+console.log(thirdcolor)
+console.log(extracolors)
+
+///// extract values from objects
+
+//and
+
+// DESTRUCTURE IN FUNCTION PARAMETERS
+
+function displayPerson({firstname1, lastname, age2, job="unemployed"}){
+    console.log(firstname1)
+    console.log(lastname)
+    console.log(age2)
+}
+
+const person4 = {
+    firstname1: "Bharath",
+    lastname: "P",
+    age2: 30,
+    job: "Developer"
+}
+
+const person5 = {
+    firstname1: "harshitha",
+    lastname: "S L",
+    age2: 29,
+    job: "Designer"
+}
+
+const {firstname1, lastname, age2, job} = person4
+
+
+console.log(firstname1)
+console.log(lastname)
+console.log(age2)
+
+displayPerson(person5)
+
+///// nested objects = Objects inside of other objects. Allow you to represent more complex data structures child object is enclosed by a parent object
+
+/// person{Adress{}, contactinfo{}}
+
+const person6 = {
+    fullname: "Harshitha S L",
+    age: 30,
+    isstudent: true,
+
+    address: {
+        street: "No 18",
+        city: "bengaluru"
+    }
+
+}
+
+console.log(person6.fullname)
+console.log(person6.address)
+console.log(person6.address.street)
+
+for(const prop in person6.address){
+    console.log(person6.address[prop])
+}
+
+class Address{
+
+    constructor(street, city, country){
+        this.street = street
+        this.city = city
+        this.country = country
+    }
+}
+
+//// Array of objects
+
+const fruit = [{name: "apple", color: "Red", calories: 95}, 
+               {name: "Orange", color: "orange", calories: 45}, 
+               {name: "banana", color: "yellow", calories: 105}, 
+               {name: "coconut", color: "brown", calories: 45}, 
+               {name: "pineapple", color: "yellow", calories: 45}]
+
+console.log(fruit[0].calories)
+
+fruit.push({name: "grapes", color: "purple", calories: 62})
+fruit.pop()
+fruit.splice(1, 2)
+console.log(fruit)
+
+fruit.forEach(fruit => console.log(fruit.calories))
+
+
+
+
