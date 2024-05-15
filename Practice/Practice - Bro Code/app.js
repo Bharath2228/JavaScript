@@ -796,7 +796,6 @@ const person6 = {
         street: "No 18",
         city: "bengaluru"
     }
-
 }
 
 console.log(person6.fullname)
@@ -831,8 +830,197 @@ fruit.pop()
 fruit.splice(1, 2)
 console.log(fruit)
 
-fruit.forEach(fruit => console.log(fruit.calories))
+fruit.forEach(fruit1 => console.log(fruit1.calories))
+
+///////// map()///////////
+
+const fruitnames = fruit.map(fruit1 => fruit1.name)
+const fruitcolors = fruit.map(fruit1 => fruit1.color)
+
+console.log(fruitnames)
+console.log(fruitcolors)
+
+// ----- filter()------
+
+const yellowfruits = fruit.filter(fruit1 => fruit1.color === "yellow")
+
+console.log(yellowfruits)
+
+// --- reduce()-----
+
+const maxfruit = fruit.reduce((max, fruit1) =>
+                               fruit1.calories > max.calories ?
+                               fruit1 : max)
+
+const minfruit = fruit.reduce((min, fruit1) => fruit1.calories < min.calories ? fruit1 : min)
+
+console.log(maxfruit)
+console.log(minfruit)
+
+/////// ---- sort() = method used to sort elements of an array in place. Sorts elements as strings in lexicographic order, not alphabetical lexicorgraphic = (alphabet + numbers + symbols) as strings
+
+let strings = ["Bhar", "hars", "ebkjdb", "dikbd"]
+let numss = [1, 9 , 0 ,67 , 5 , 5 ]
+
+console.log(numss.sort((a, b) => a - b))
+
+// for reverse order
+
+console.log(numss.sort((a, b) => b - a))
+console.log(strings.sort())
+
+///// Shuffle an array
+
+const cards = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
+
+// cards.sort(() => Math.random() - 0.5) inefficent method
+
+///// Fisher-yates algorithm
+shuffle(cards)
+
+function shuffle(array){
+    for(let i = array.length - 1; i > 0; i--){
+        const random = Math.floor(Math.random() * (i + 1));
+
+        [array[i], array[random]] = [array[random], array[i]]
+
+    }
+}
+
+console.log(cards)
+
+////////// Date Objects = Objects that contain values that represent dates and times. These date objects can be changes and formatted
+
+// Date(year, month, day, hour, ninute, second, ms)
+const date = new Date();
+const date1 = new Date(2024, 3, 2, 1, 2, 1)
+
+const year = date.getFullYear()
+const month = date.getMonth()
+const day1 = date.getDate()
+const hour = date.getHours()
+const minutes = date.getMinutes()
+const seconds = date.getSeconds()
 
 
+console.log(date)
+console.log(date1)
+console.log(year)
+console.log(month)
+console.log(day1)
+console.log(hour)
+console.log(minutes)
+console.log(seconds)
+
+date.setFullYear(2024);
+date.setMonth(0)
+date.setDate(1)
+date.setHours(2)
+date.setMinutes(4)
+date.setSeconds(3)
+
+console.log(date)
+
+// clousre = a function defined inside of another function, the inner function has access to the variables and scope of the outer function.
+// allow for private variables and state maintenance
+//Used frequently in JS frameworks: react, Vue, Angular
 
 
+function outer(){
+
+    let msg = "hello"
+
+    function inner(){
+        console.log(msg)
+    }
+    inner()
+}
+
+outer()
+
+function createcounter(){
+    let count = 0
+
+    function increment(){
+        count++
+        console.log(`count increment to ${count}`)
+    
+    }
+
+    function getcountfunction(){
+        return count;
+
+    }
+
+    return {increment, getcountfunction}
+}
+
+const counter = createcounter()
+
+counter.increment()
+counter.increment()
+
+console.log(counter.getcountfunction())
+
+///////////////////////////
+
+function creategame(){
+    let score  = 0
+
+    function increaseScore(points){
+        score += points
+        console.log(`points +${points}`)
+    }
+
+    function decreaseScore(points){
+        score -= points
+        console.log(`points -${points}`)
+    }
+
+    function getScore(){
+        return score
+    }
+
+    return{increaseScore, decreaseScore, getScore}
+}
+
+const scoring = creategame()
+
+scoring.increaseScore(5)
+scoring.increaseScore(5)
+console.log(scoring.getScore())
+scoring.decreaseScore(4)
+console.log(scoring.getScore())
+
+// console.log(`get score ${getScore()}`)
+
+//// setTimeout() = function in JavaScript that allows you to schedule the execution of a function after an amount of time (milliseconds)
+// Times are approximate (varies based on the workload of the javascript runtime env.)
+
+// setTimeout(callback, delay);
+// clearTimeout(timeoutID) = can cancel a timeout before it triggers
+
+
+// function sayhello(){
+//     window.alert("hello")
+// }
+
+// setTimeout(sayhello, 3000)
+
+// setTimeout(function(){window.alert("Hello")}, 3000)
+
+// const timeoutId = setTimeout(() => window.alert("hello"), 3000)
+
+// clearTimeout(timeoutId);
+
+let timeoutId
+
+function startTimer(){
+    timeoutId = setTimeout(() => window.alert("hello"), 3000)
+    console.log("Started")
+}
+
+function clearTimer(){
+    clearTimeout(timeoutId)
+    console.log("Cleared")
+}
