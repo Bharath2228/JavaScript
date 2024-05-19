@@ -1024,3 +1024,57 @@ function clearTimer(){
     clearTimeout(timeoutId)
     console.log("Cleared")
 }
+
+// synchronous = Executes line by line consecuteively in a sequential manner code that waits for an operation to complete
+
+// asynchronous = Allows multiple opeartions to be performed concurrently without waiting 
+// Doesn't block the execution flow and allows the program to continue
+// (I/O opearions, network requests, fetching data) handled with: callbacks, promises, Async/Await
+
+
+function func1(callback){
+    setTimeout(() => {
+        console.log('Task 1');
+        callback();
+    }, 3000);
+}
+
+function func2(){
+    console.log('task 2')
+    console.log('task 3')
+}
+
+func1(func2)
+
+//// Error = An object is created to represnt a problem that occurs. Occur often with user input or establishing a connection
+
+try{
+    console.log(x111)
+}
+catch(error){
+    console.error(error)
+}
+finally{
+    console.log("This always execute")
+}
+
+
+
+try{
+    const dividend = Number(window.prompt("Enter a dividend: "))
+    const divisor = Number(window.prompt("Enter a divisor: "))
+
+    if (divisor == 0){
+        throw new Error("You cant divide by 0")
+    }
+
+    if(isNaN(dividend) || isNaN(divisor)){
+        throw new Error("Values are not a number")
+    }
+
+    const result2 = dividend / divisor
+    console.log(result2)
+}
+catch(error){
+    console.error(error)
+}
