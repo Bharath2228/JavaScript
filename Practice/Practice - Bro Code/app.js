@@ -1048,33 +1048,127 @@ func1(func2)
 
 //// Error = An object is created to represnt a problem that occurs. Occur often with user input or establishing a connection
 
-try{
-    console.log(x111)
-}
-catch(error){
-    console.error(error)
-}
-finally{
-    console.log("This always execute")
-}
+// try{
+//     console.log(x111)
+// }
+// catch(error){
+//     console.error(error)
+// }
+// finally{
+//     console.log("This always execute")
+// }
+
+// try{
+//     // const dividend = Number(window.prompt("Enter a dividend: "))
+//     // const divisor = Number(window.prompt("Enter a divisor: "))
+
+//     if (divisor == 0){
+//         throw new Error("You cant divide by 0")
+//     }
+
+//     if(isNaN(dividend) || isNaN(divisor)){
+//         throw new Error("Values are not a number")
+//     }
+
+//     const result2 = dividend / divisor
+//     console.log(result2)
+// }
+// catch(error){
+//     console.error(error)
+// }
+
+// element selectors = Methods used to target and manipulate HTML elements They allow you to select one or multiple HTML elements from the DOM (Document Object Model)
+
+// document.getElementById()         // ELEMENT OR NULL
+// document.getElementsByClassName() // HTML COLLECTION
+// document.getElementsByTagName()   // HTML COLLECTION
+// document.querySelector()          // ELEMENT OR NULL
+// document.querySelectorAll()       // NODELIST
+
+// const heading = document.getElementById("heading")
+// heading.style.backgroundColor = "yellow"
+// heading.style.textAlign = "center"
+
+// const fruits1 =  document.getElementsByClassName("fruits")
+
+// for (let fruit of fruits1){
+//     fruit.style.backgroundColor = "yellow"
+// }
+
+// // fruits1[1].style.backgroundColor = "yellow"
+
+// console.log(fruits)
+
+// Array.from(fruits1).forEach(fruit => {
+//     fruit.style.backgroundColor = "Red"
+// })
+
+// const h4elements = document.getElementsByTagName("h4")
+// const lielements = document.getElementsByTagName("li")
+
+// for(let h4element of h4elements){
+//     h4element.style.backgroundColor = "yellow"
+// }
+
+// for (let lielement of lielements){
+//     lielement.style.backgroundColor = "yellow"
+// }
+
+// Array.from(h4elements).forEach(h4element => {
+//     h4element.style.backgroundColor = "red"
+// })
+
+// Array.from(lielements).forEach(lielements => {
+//     lielements.style.backgroundColor = "red"
+// })
+// // h4elements[0].style.backgroundColor = "yellow"
+
+// const element = document.querySelector("li")
+// const allelement = document.querySelectorAll("h4")
+
+// element.style.backgroundColor = "yellow"
+// allelement[0].style.backgroundColor = "yellow"
+
+// Array.from(allelement).forEach(element => {
+//     element.style.backgroundColor = "violet"
+// })
 
 
+/// DOM Navigation = The process of navigating the structure of an HTML document using JavaScript
 
-try{
-    const dividend = Number(window.prompt("Enter a dividend: "))
-    const divisor = Number(window.prompt("Enter a divisor: "))
+// .firstElementChild
+//.lastElementChild
+// .nextElementSibling
+// ,previousElementSibling
+// .parentElement
+// .children
 
-    if (divisor == 0){
-        throw new Error("You cant divide by 0")
-    }
+/// ------------ .firstElementChild ----------------
 
-    if(isNaN(dividend) || isNaN(divisor)){
-        throw new Error("Values are not a number")
-    }
+// const element1 = document.getElementById("fruits")
+// const firstchild = element1.firstElementChild;
 
-    const result2 = dividend / divisor
-    console.log(result2)
-}
-catch(error){
-    console.error(error)
-}
+// firstchild.style.backgroundColor = "yellow"
+
+// const ulelements = document.querySelectorAll("ul")
+
+// ulelements.forEach(ulelement => {
+//     const firstchild = ulelement.firstElementChild;
+//     firstchild.style.backgroundColor = "red"
+// })
+
+/// Example 1 <h1> 
+
+// STEP 1 CRETAE THE ELEMENT
+
+const newH1 = document.createElement("h1");
+
+// STEP 2 ADD ATTRIBUTES/PROPERTIES
+
+newH1.textContent = "I love Chicken"
+
+//STEP 3 APPEND ELEMENT TO DOM
+
+document.body.append(newH1)
+// REMOVE HTML ELEMENT
+
