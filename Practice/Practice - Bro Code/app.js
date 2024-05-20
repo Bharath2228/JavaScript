@@ -1166,9 +1166,150 @@ const newH1 = document.createElement("h1");
 // STEP 2 ADD ATTRIBUTES/PROPERTIES
 
 newH1.textContent = "I love Chicken"
-
+newH1.id = "myH1"
+newH1.style.color = "red"
+newH1.style.textAlign = "center";
 //STEP 3 APPEND ELEMENT TO DOM
 
-document.body.append(newH1)
+// document.body.append(newH1)
+// document.body.prepend(newH1)
+
+// document.getElementById("box1").append(newH1)
+// document.getElementById("box1").prepend(newH1)
+
+const box2 = document.getElementById("box2")
+
+document.body.insertBefore(newH1, box2)
+
 // REMOVE HTML ELEMENT
 
+document.body.removeChild(newH1);
+
+
+/// Example ///
+
+// STEP 1 CREATE THE ELEMENT
+
+const newListItem = document.createElement("li")
+
+// step 2 set attributes / properties
+
+newListItem.textContent = "coconut"
+newListItem.id = "coconut"
+newListItem.style.fontSize = "35px"
+
+// step 3 append element to DOM
+
+// document.body.append(newListItem)
+
+// document.getElementById("fruits").append(newListItem)
+
+
+//// --------- Mouse Events --------------------------
+
+// eventListner = Listen for specific events to create interactive web pages 
+//  events: click, mouseover, mouseout
+// .addEventListner(event, callback)
+
+const mybox = document.getElementById("box6");
+const myButton = document.getElementById("mybutton")
+// box.addEventListener(event, callback)
+
+// function changeColor(event){
+//     event.target.style.backgroundColor = "tomato"
+//     event.target.textContent = "Ouch! 🥲"
+// }
+
+
+// mybox.addEventListener("click", changeColor);
+
+// mybox.addEventListener("click", function(event){
+//     event.target.style.backgroundColor = "tomato"
+//     event.target.textContent = "Ouch! 🥲"
+    
+// })
+
+// myButton.addEventListener("click", event => {
+//     event.target.style.backgroundColor = "tomato"
+//     event.target.textContent = "Ouch! 🥲"
+// })
+
+// myButton.addEventListener("mouseover", event =>{
+//     event.target.style.backgroundColor = "Yellow";
+//     event.target.textContent = "Don't do it";
+// })
+
+// myButton.addEventListener("mouseout", event => {
+//     event.target.style.backgroundColor = "lightgreen";
+//     event.target.textContent = "Click Me 😎"
+// })
+
+
+///// ----------- events: keydown, keyup--------------------
+
+const mybox1 = document.getElementById("mybox")
+const moveamount = 10
+let x5 = 0;
+let y5 = 0
+
+document.addEventListener("keydown", event => {
+
+    if(event.key.startsWith("Arrow")){
+
+        event.preventDefault();
+
+        switch(event.key){
+            case "ArrowUp":
+                y -= moveamount;
+                break;
+            case "ArrowDown":
+                y += moveamount;
+                break;
+            case "ArrowLeft":
+                x -= moveamount;
+                break;
+            case "ArrowRight":
+                x += moveamount;
+                break;
+        }
+
+        mybox1.style.top = `${y}px`;
+        mybox1.style.left = `${x}px`;
+
+    }
+})
+
+document.addEventListener("keydown", event => {
+    mybox1.textContent = "🥲"
+    mybox1.style.backgroundColor = "tomato"
+})
+
+document.addEventListener("keyup", event => {
+    mybox1.textContent = "😎"
+    mybox1.style.backgroundColor = "lightblue"
+})
+
+
+//// ------- hide / show HTMl --------------------
+
+const mybtn12 = document.getElementById("mybutnn")
+const myimg = document.getElementById("myimg")
+
+mybtn12.addEventListener("click", event => {
+
+    if(myimg.style.visibility === "hidden"){
+        myimg.style.visibility = "visible";
+        mybtn12.textContent = "Hide";
+    }
+
+    else{
+        myimg.style.visibility = "hidden";
+        mybtn12.textContent = "Show";
+    }
+});
+
+
+////NodeList = Static collection of HTML Elements by (id, class, element) 
+// van be created by using querySelectorAll()
+// similar to an array, but no (map, filter, reduce)
+// NodeList wont update to automatically reflect changes
