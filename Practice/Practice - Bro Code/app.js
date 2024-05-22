@@ -1247,69 +1247,112 @@ const myButton = document.getElementById("mybutton")
 
 ///// ----------- events: keydown, keyup--------------------
 
-const mybox1 = document.getElementById("mybox")
-const moveamount = 10
-let x5 = 0;
-let y5 = 0
+// const mybox1 = document.getElementById("mybox")
+// const moveamount = 10
+// let x5 = 0;
+// let y5 = 0
 
-document.addEventListener("keydown", event => {
+// document.addEventListener("keydown", event => {
 
-    if(event.key.startsWith("Arrow")){
+//     if(event.key.startsWith("Arrow")){
 
-        event.preventDefault();
+//         event.preventDefault();
 
-        switch(event.key){
-            case "ArrowUp":
-                y -= moveamount;
-                break;
-            case "ArrowDown":
-                y += moveamount;
-                break;
-            case "ArrowLeft":
-                x -= moveamount;
-                break;
-            case "ArrowRight":
-                x += moveamount;
-                break;
-        }
+//         switch(event.key){
+//             case "ArrowUp":
+//                 y -= moveamount;
+//                 break;
+//             case "ArrowDown":
+//                 y += moveamount;
+//                 break;
+//             case "ArrowLeft":
+//                 x -= moveamount;
+//                 break;
+//             case "ArrowRight":
+//                 x += moveamount;
+//                 break;
+//         }
 
-        mybox1.style.top = `${y}px`;
-        mybox1.style.left = `${x}px`;
+//         mybox1.style.top = `${y}px`;
+//         mybox1.style.left = `${x}px`;
 
-    }
-})
+//     }
+// })
 
-document.addEventListener("keydown", event => {
-    mybox1.textContent = "🥲"
-    mybox1.style.backgroundColor = "tomato"
-})
+// document.addEventListener("keydown", event => {
+//     mybox1.textContent = "🥲"
+//     mybox1.style.backgroundColor = "tomato"
+// })
 
-document.addEventListener("keyup", event => {
-    mybox1.textContent = "😎"
-    mybox1.style.backgroundColor = "lightblue"
-})
+// document.addEventListener("keyup", event => {
+//     mybox1.textContent = "😎"
+//     mybox1.style.backgroundColor = "lightblue"
+// })
 
 
-//// ------- hide / show HTMl --------------------
+// //// ------- hide / show HTMl --------------------
 
-const mybtn12 = document.getElementById("mybutnn")
-const myimg = document.getElementById("myimg")
+// const mybtn12 = document.getElementById("mybutnn")
+// const myimg = document.getElementById("myimg")
 
-mybtn12.addEventListener("click", event => {
+// mybtn12.addEventListener("click", event => {
 
-    if(myimg.style.visibility === "hidden"){
-        myimg.style.visibility = "visible";
-        mybtn12.textContent = "Hide";
-    }
+//     if(myimg.style.visibility === "hidden"){
+//         myimg.style.visibility = "visible";
+//         mybtn12.textContent = "Hide";
+//     }
 
-    else{
-        myimg.style.visibility = "hidden";
-        mybtn12.textContent = "Show";
-    }
-});
+//     else{
+//         myimg.style.visibility = "hidden";
+//         mybtn12.textContent = "Show";
+//     }
+// });
 
 
 ////NodeList = Static collection of HTML Elements by (id, class, element) 
 // van be created by using querySelectorAll()
 // similar to an array, but no (map, filter, reduce)
 // NodeList wont update to automatically reflect changes
+
+let buttons = document.querySelectorAll(".mybuttons")
+
+// add html / css properties
+
+buttons.forEach(button => {
+    button.style.backgroundColor = "green";
+    button.textContent += "😎"
+})
+
+// click event listner
+
+buttons.forEach(button => {
+    button.addEventListener("click", event => {
+        event.target.style.backgroundColor = "tomato"
+    })
+})
+
+buttons.forEach(button => {
+    button.addEventListener("mouseover", event => {
+        event.target.style.backgroundColor = "hsl(205, 100%, 60%"
+    })
+})
+
+buttons.forEach(button => {
+    button.addEventListener("mouseout", event => {
+        event.target.style.backgroundColor = "green"
+    })
+})
+
+// Add an element
+
+const newButton = document.createElement("button")
+
+newButton.textContent = "Button 5"
+newButton.classList = "mybuttons"
+
+document.body.appendChild(newButton)
+
+buttons = document.querySelectorAll(".mybuttons")
+
+
+/// 
