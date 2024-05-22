@@ -1380,16 +1380,168 @@ const mbutton = document.getElementById("mbutton")
 //     event.target.classList.toogle("hover")
 // })
 
-mbutton.classList.add("enabled")
-mH1.classList.add("enabled")
+// mbutton.classList.add("enabled")
+// mH1.classList.add("enabled")
 
-mbutton.addEventListener("click", event => {
+// mbutton.addEventListener("click", event => {
 
-    if(event.target.classList.contains("disabled")){
-        event.target.textContent += "😎"
+//     if(event.target.classList.contains("disabled")){
+//         event.target.textContent += "😎"
+//     }
+//     else{
+//         event.target.classList.replace("enabled", "disabled")
+//     }
+// })
+
+// ------------------- PROMISE -----------------------
+
+function task1(){
+
+    return new Promise((resolve, reject) => {
+
+        const task = true
+        if(task){
+            setTimeout(() => {
+                resolve("Task1 completed")
+            }, 1500)
+        }else{
+            reject("Task1 not completed")
+        }
+        
+    })
+}
+
+function task2(){
+    return new Promise((resolve, reject) => {
+
+        const task = true;
+
+        if(task){
+            setTimeout(() =>{
+                resolve("Task2 completed")
+            }, 2000)
+        }else{
+            reject("Task2 not completed")
+        }
+    })
+}
+
+function task3(){
+    return new Promise((resolve, reject) => {
+         
+        const task = true;
+        if(task){
+            setTimeout(() => {
+                resolve("Task3 is completed")
+            }, 2500)
+        }else{
+            reject("Task 3 not completed")
+        }
+    })
+}
+
+// task1().then(value => {console.log(value); return task2()}).then(value => {console.log(value); return task3()}).then(value => {console.log(value); return console.log("All tasks are completed")} ).catch(error => console.error(error));
+
+
+// ----------------- Async / Await -------------------------
+
+async function alltasks(){
+    try{
+
+        const task1result = await task1();
+        console.log(task1result)
+
+        const task2result = await task2();
+        console.log(task2result)
+
+        const task3result = await task3();
+        console.log(task3result)
+
+        console.log("All tasks are completed")
+
     }
-    else{
-        event.target.classList.replace("enabled", "disabled")
+    catch(error){
+        console.error(error)
+    }
+}
+
+alltasks()
+
+
+/// JSON = (JavaScript Object Notation) data-interchange format Used for exchanging data between a server and a web application JSON files {key:value} OR [value1, value2, value3]
+
+// JSON.stringify() = converts a JS object to a JSON strings
+// JSON.parse() = converts a JSON string to a JS object
+
+const names = ["Bharath", "Harshitha", "Revanth", "Prakash"];
+const personn = `{"name": "Bharath","age": 30,"isEmployed": true,"hobbies": ["sports", "coding", "dancing"]}`
+
+const people = [{
+    "name": "Bharath",
+    "age": 30,
+    "isEmployed": true
+},
+{
+    "name": "Harshitha",
+    "age": 29,
+    "isEmployed": false
+},
+{
+    "name": "Revanth",
+    "age": 35,
+    "isEmployed": true
+},
+{
+    "name": "Prakash",
+    "age": 55,
+    "isEmployed": false
+}]
+
+const jsonstring = JSON.stringify(names)
+const jsonstring1 = JSON.stringify(personn)
+const jsonstring2 = JSON.stringify(people)
+
+const jsonparse = JSON.parse(personn)
+console.log(names)
+console.log(jsonparse)
+
+
+// fetch = function used for making HTTP requests to fetch resources. (JSON style data, images, files)
+// simplifies asynchronous data fetching in javascript and used for interacting with APIs to retrieve and send data asynchronously over the web.
+
+// fetch(url, {options})
+
+fetch("people.json").then(response => response.json())
+.then(values => values.forEach(value => console.log(value))).catch(error => console.log(error))
+
+fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+.then(response => {
+    if(!response.ok){
+        throw new Error("Not able to fetch data")
+    }else{
+        return response.json();
     }
 })
+.then( data => console.log(data.name))
+.catch(error => console.log(error));
 
+
+// using Async and Await
+
+async function fetchdata(){
+
+    const pokemonName = document.getElementById("pokemonName").value.toLowerCase()
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+
+    console.log(response)
+
+    const data = await response.json();
+    const pokemonimages = data.sprites.front_default;
+    const imgelement = document.getElementById("pokemonSprite")
+
+    imgelement.src = pokemonimages;
+    imgelement.style.display = "block";
+
+}
+
+// fetchdata()
