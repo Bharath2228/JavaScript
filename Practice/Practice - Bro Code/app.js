@@ -1345,14 +1345,51 @@ buttons.forEach(button => {
 
 // Add an element
 
-const newButton = document.createElement("button")
+// const newButton = document.createElement("button")
 
-newButton.textContent = "Button 5"
-newButton.classList = "mybuttons"
+// newButton.textContent = "Button 5"
+// newButton.classList = "mybuttons"
 
-document.body.appendChild(newButton)
+// document.body.appendChild(newButton)
 
-buttons = document.querySelectorAll(".mybuttons")
+// buttons = document.querySelectorAll(".mybuttons")
 
 
-/// 
+/// ClassList = element property in javaScript used to interact with an element's list of classes (CSS Classes)
+/// Allows you to make reusable classes for many elements across your webpage
+
+// add()
+// remove()
+// toggle(Remove if present, Addd if not)
+// replace(oldClass, newclass)
+// contains()
+
+const mH1 = document.getElementById("mH1")
+const mbutton = document.getElementById("mbutton")
+
+// mbutton.classList.add("enabled")
+// mbutton.classList.remove("enabled")
+
+// mbutton.classList.add("hover")
+
+// mbutton.addEventListener("mouseover", event => {
+//     event.target.classList.toggle("hover")
+// })
+
+// mbutton.addEventListener("mouseout", event => {
+//     event.target.classList.toogle("hover")
+// })
+
+mbutton.classList.add("enabled")
+mH1.classList.add("enabled")
+
+mbutton.addEventListener("click", event => {
+
+    if(event.target.classList.contains("disabled")){
+        event.target.textContent += "😎"
+    }
+    else{
+        event.target.classList.replace("enabled", "disabled")
+    }
+})
+
